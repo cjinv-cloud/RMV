@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- 파비콘 설정 (로고 준비 시 교체) -->
+  <!-- <link rel="icon" type="image/x-icon" href="images/logo_icon.png" /> -->
+
+
+  <!-- Apple Touch Icon (iOS) -->
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="images/logo_icon.png" /> -->
+
+  <!-- Android Chrome Icons -->
+  <!-- <link rel="icon" type="image/png" sizes="192x192" href="images/logo_icon.png" /> -->
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 다국어 지원 메타 태그 -->
+  <meta name="language" content="Korean" />
+  <meta name="available-languages" content="ko, en, ja" />
+  <meta http-equiv="content-language" content="ko" />
+
+  <!-- 페이지 제목 -->
+  <title data-i18n="page_title">RememVers</title>
+
+  <!-- 페이지 설명 -->
+  <meta name="description" content="설명 기입" />
+
+  <!-- Open Graph 태그 -->
+  <meta property="og:title" content="타이틀 기입" />
+  <meta property="og:description" content="설명 기입" />
+  <meta property="og:type" content="website" />
+
+  <!-- 기본 css 로드 -->
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="lib/aos.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+
+
+
+</head>
+
+
+<body>
+  <header>
+    <div class="header-wrapper inner">
+      <div class="logo-wrapper">
+        <h1>
+          <a href="#">
+            <img src="images/logo_light.png" alt="NexaCore-Logo-light">
+          </a>
+        </h1>
+      </div>
+
+      <ul class="btn-wrapper">
+        <!-- 언어 변경 버튼 -->
+        <li class="lang-btn-wrap">
+          <button class="lang-btn">LANGUAGE <span id="current-lang"></span></button>
+          <ul class="lang-list">
+            <li data-lang="es">
+              <button class="es-btn"><span>ES</span>Español</button>
+            </li>
+            <li data-lang="en">
+              <button class="en-btn"><span>US</span>English</button>
+            </li>
+            <li data-lang="jp">
+              <button class="jp-btn"><span>JP</span>日本語</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <footer>
+    <div class="lang-area inner" data-lang="es">
+      <div class="footer-top">
+        <div class="info">
+          <div class="logo-info">
+            <h1>
+              <a href="#">
+                <img src="images/logo_dark.png" alt="NexaCore-Logo-dark">
+              </a>
+            </h1>
+          </div>
+
+          <div class="profile-info">
+            <ul>
+              <li class="profile-item">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                    <rect x="0.278809" y="0.600586" width="50.4" height="50.4" rx="11.2" fill="#6D6D72" />
+                    <path
+                      d="M25 26C27.7614 26 30 23.7614 30 21C30 18.2386 27.7614 16 25 16C22.2386 16 20 18.2386 20 21C20 23.7614 22.2386 26 25 26Z"
+                      fill="white" />
+                    <path
+                      d="M25.0002 28.5C19.9902 28.5 15.9102 31.86 15.9102 36C15.9102 36.28 16.1302 36.5 16.4102 36.5H33.5902C33.8702 36.5 34.0902 36.28 34.0902 36C34.0902 31.86 30.0102 28.5 25.0002 28.5Z"
+                      fill="white" />
+                  </svg>
+                </i>
+                <p><span>Representante legal</span>MIHO KONDO</p>
+              </li>
+              <li class="profile-item">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                    <rect x="0.278809" y="0.000488281" width="50.4" height="50.4" rx="11.2" fill="#6D6D72" />
+                    <path
+                      d="M34.09 19.979C33.24 19.039 31.82 18.569 29.76 18.569H29.52V18.529C29.52 16.849 29.52 14.769 25.76 14.769H24.24C20.48 14.769 20.48 16.859 20.48 18.529V18.579H20.24C18.17 18.579 16.76 19.049 15.91 19.989C14.92 21.089 14.95 22.569 15.05 23.579L15.06 23.649L15.1375 24.4623C15.1518 24.6121 15.2324 24.7474 15.3583 24.8298C15.5981 24.9867 15.9995 25.2454 16.24 25.379C16.38 25.469 16.53 25.549 16.68 25.629C18.39 26.569 20.27 27.199 22.18 27.509C22.27 28.449 22.68 29.549 24.87 29.549C27.06 29.549 27.49 28.459 27.56 27.489C29.6 27.159 31.57 26.449 33.35 25.409C33.41 25.379 33.45 25.349 33.5 25.319C33.8968 25.0948 34.3083 24.8185 34.6835 24.5479C34.7965 24.4664 34.8688 24.3403 34.8842 24.2018L34.9 24.059L34.95 23.589C34.96 23.529 34.96 23.479 34.97 23.409C35.05 22.399 35.03 21.019 34.09 19.979ZM26.09 26.829C26.09 27.889 26.09 28.049 24.86 28.049C23.63 28.049 23.63 27.859 23.63 26.839V25.579H26.09V26.829ZM21.91 18.569V18.529C21.91 16.829 21.91 16.199 24.24 16.199H25.76C28.09 16.199 28.09 16.839 28.09 18.529V18.579H21.91V18.569Z"
+                      fill="white" />
+                    <path
+                      d="M33.8733 26.7334C34.2269 26.5652 34.6342 26.8454 34.5988 27.2354L34.2398 31.1892C34.0298 33.1892 33.2098 35.2292 28.8098 35.2292H21.1898C16.7898 35.2292 15.9698 33.1892 15.7598 31.1992L15.4191 27.4514C15.3841 27.0659 15.782 26.786 16.1347 26.9455C17.2741 27.461 19.3772 28.3756 20.6764 28.7159C20.8407 28.7589 20.9736 28.8765 21.0456 29.0304C21.6525 30.3285 22.969 31.0192 24.8698 31.0192C26.752 31.0192 28.085 30.3019 28.694 29.0006C28.766 28.8466 28.8991 28.7291 29.0635 28.6858C30.443 28.3228 32.6816 27.3005 33.8733 26.7334Z"
+                      fill="white" />
+                  </svg>
+                </i>
+                <p><span>Número de Registro de Sociedades</span>155769075</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menu">
+          <h2>Empresa</h2>
+          <ul>
+            <li>Sobre</li>
+            <li>Estructura Legal y Funciones</li>
+            <li>Token Titanium</li>
+            <li>Hoja de Ruta</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © NexaCore | Todos los derechos reservados</p>
+      </div>
+    </div>
+
+    <div class="lang-area inner" data-lang="en">
+      <div class="footer-top">
+        <div class="info">
+          <div class="logo-info">
+            <h1>
+              <a href="#">
+                <img src="images/logo_dark.png" alt="NexaCore-Logo-dark">
+              </a>
+            </h1>
+          </div>
+
+          <div class="profile-info">
+            <ul>
+              <li class="profile-item">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                    <rect x="0.278809" y="0.600586" width="50.4" height="50.4" rx="11.2" fill="#6D6D72" />
+                    <path
+                      d="M25 26C27.7614 26 30 23.7614 30 21C30 18.2386 27.7614 16 25 16C22.2386 16 20 18.2386 20 21C20 23.7614 22.2386 26 25 26Z"
+                      fill="white" />
+                    <path
+                      d="M25.0002 28.5C19.9902 28.5 15.9102 31.86 15.9102 36C15.9102 36.28 16.1302 36.5 16.4102 36.5H33.5902C33.8702 36.5 34.0902 36.28 34.0902 36C34.0902 31.86 30.0102 28.5 25.0002 28.5Z"
+                      fill="white" />
+                  </svg>
+                </i>
+                <p><span>Representative</span>MIHO KONDO</p>
+              </li>
+              <li class="profile-item">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                    <rect x="0.278809" y="0.000488281" width="50.4" height="50.4" rx="11.2" fill="#6D6D72" />
+                    <path
+                      d="M34.09 19.979C33.24 19.039 31.82 18.569 29.76 18.569H29.52V18.529C29.52 16.849 29.52 14.769 25.76 14.769H24.24C20.48 14.769 20.48 16.859 20.48 18.529V18.579H20.24C18.17 18.579 16.76 19.049 15.91 19.989C14.92 21.089 14.95 22.569 15.05 23.579L15.06 23.649L15.1375 24.4623C15.1518 24.6121 15.2324 24.7474 15.3583 24.8298C15.5981 24.9867 15.9995 25.2454 16.24 25.379C16.38 25.469 16.53 25.549 16.68 25.629C18.39 26.569 20.27 27.199 22.18 27.509C22.27 28.449 22.68 29.549 24.87 29.549C27.06 29.549 27.49 28.459 27.56 27.489C29.6 27.159 31.57 26.449 33.35 25.409C33.41 25.379 33.45 25.349 33.5 25.319C33.8968 25.0948 34.3083 24.8185 34.6835 24.5479C34.7965 24.4664 34.8688 24.3403 34.8842 24.2018L34.9 24.059L34.95 23.589C34.96 23.529 34.96 23.479 34.97 23.409C35.05 22.399 35.03 21.019 34.09 19.979ZM26.09 26.829C26.09 27.889 26.09 28.049 24.86 28.049C23.63 28.049 23.63 27.859 23.63 26.839V25.579H26.09V26.829ZM21.91 18.569V18.529C21.91 16.829 21.91 16.199 24.24 16.199H25.76C28.09 16.199 28.09 16.839 28.09 18.529V18.579H21.91V18.569Z"
+                      fill="white" />
+                    <path
+                      d="M33.8733 26.7334C34.2269 26.5652 34.6342 26.8454 34.5988 27.2354L34.2398 31.1892C34.0298 33.1892 33.2098 35.2292 28.8098 35.2292H21.1898C16.7898 35.2292 15.9698 33.1892 15.7598 31.1992L15.4191 27.4514C15.3841 27.0659 15.782 26.786 16.1347 26.9455C17.2741 27.461 19.3772 28.3756 20.6764 28.7159C20.8407 28.7589 20.9736 28.8765 21.0456 29.0304C21.6525 30.3285 22.969 31.0192 24.8698 31.0192C26.752 31.0192 28.085 30.3019 28.694 29.0006C28.766 28.8466 28.8991 28.7291 29.0635 28.6858C30.443 28.3228 32.6816 27.3005 33.8733 26.7334Z"
+                      fill="white" />
+                  </svg>
+                </i>
+                <p><span>Business Registration Number</span>155769075</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menu">
+          <h2>Company</h2>
+          <ul>
+            <li>About</li>
+            <li>Legal Structure and Functions</li>
+            <li>Token Titanium</li>
+            <li>Road Map</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © NexaCore |  All rights reserved</p>
+      </div>
+    </div>
+
+    <div class="lang-area inner" data-lang="jp">
+      <div class="footer-top">
+        <div class="info">
+          <div class="logo-info">
+            <h1>
+              <a href="#">
+                <img src="images/logo_dark.png" alt="NexaCore-Logo-dark">
+              </a>
+            </h1>
+          </div>
+
+          <div class="profile-info">
+            <ul>
+              <li class="profile-item">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                    <rect x="0.278809" y="0.600586" width="50.4" height="50.4" rx="11.2" fill="#6D6D72" />
+                    <path
+                      d="M25 26C27.7614 26 30 23.7614 30 21C30 18.2386 27.7614 16 25 16C22.2386 16 20 18.2386 20 21C20 23.7614 22.2386 26 25 26Z"
+                      fill="white" />
+                    <path
+                      d="M25.0002 28.5C19.9902 28.5 15.9102 31.86 15.9102 36C15.9102 36.28 16.1302 36.5 16.4102 36.5H33.5902C33.8702 36.5 34.0902 36.28 34.0902 36C34.0902 31.86 30.0102 28.5 25.0002 28.5Z"
+                      fill="white" />
+                  </svg>
+                </i>
+                <p><span>代表者</span>MIHO KONDO</p>
+              </li>
+              <li class="profile-item">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" viewBox="0 0 51 51" fill="none">
+                    <rect x="0.278809" y="0.000488281" width="50.4" height="50.4" rx="11.2" fill="#6D6D72" />
+                    <path
+                      d="M34.09 19.979C33.24 19.039 31.82 18.569 29.76 18.569H29.52V18.529C29.52 16.849 29.52 14.769 25.76 14.769H24.24C20.48 14.769 20.48 16.859 20.48 18.529V18.579H20.24C18.17 18.579 16.76 19.049 15.91 19.989C14.92 21.089 14.95 22.569 15.05 23.579L15.06 23.649L15.1375 24.4623C15.1518 24.6121 15.2324 24.7474 15.3583 24.8298C15.5981 24.9867 15.9995 25.2454 16.24 25.379C16.38 25.469 16.53 25.549 16.68 25.629C18.39 26.569 20.27 27.199 22.18 27.509C22.27 28.449 22.68 29.549 24.87 29.549C27.06 29.549 27.49 28.459 27.56 27.489C29.6 27.159 31.57 26.449 33.35 25.409C33.41 25.379 33.45 25.349 33.5 25.319C33.8968 25.0948 34.3083 24.8185 34.6835 24.5479C34.7965 24.4664 34.8688 24.3403 34.8842 24.2018L34.9 24.059L34.95 23.589C34.96 23.529 34.96 23.479 34.97 23.409C35.05 22.399 35.03 21.019 34.09 19.979ZM26.09 26.829C26.09 27.889 26.09 28.049 24.86 28.049C23.63 28.049 23.63 27.859 23.63 26.839V25.579H26.09V26.829ZM21.91 18.569V18.529C21.91 16.829 21.91 16.199 24.24 16.199H25.76C28.09 16.199 28.09 16.839 28.09 18.529V18.579H21.91V18.569Z"
+                      fill="white" />
+                    <path
+                      d="M33.8733 26.7334C34.2269 26.5652 34.6342 26.8454 34.5988 27.2354L34.2398 31.1892C34.0298 33.1892 33.2098 35.2292 28.8098 35.2292H21.1898C16.7898 35.2292 15.9698 33.1892 15.7598 31.1992L15.4191 27.4514C15.3841 27.0659 15.782 26.786 16.1347 26.9455C17.2741 27.461 19.3772 28.3756 20.6764 28.7159C20.8407 28.7589 20.9736 28.8765 21.0456 29.0304C21.6525 30.3285 22.969 31.0192 24.8698 31.0192C26.752 31.0192 28.085 30.3019 28.694 29.0006C28.766 28.8466 28.8991 28.7291 29.0635 28.6858C30.443 28.3228 32.6816 27.3005 33.8733 26.7334Z"
+                      fill="white" />
+                  </svg>
+                </i>
+                <p><span>事業者登録番号</span>155769075</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menu">
+          <h2>仲間</h2>
+          <ul>
+            <li>概要</li>
+            <li>法的構造と機能</li>
+            <li>TITANIUMトークン</li>
+            <li>ロードマップ</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>著作権 © NexaCore | 無断複写・転載を禁じます</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- script -->
+  <!-- 1. LIBRARY -->
+  <!-- 1-1. jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- 1-2. swiper -->
+  <script src="lib/swiper-bundle.min.js"></script>
+  <!-- 1-3. aos -->
+  <script src="lib/aos.js"></script>
+  <!-- 1-4. GSAP -->
+  <script src="lib/gsap/gsap.min.js"></script>
+  <script src="lib/gsap/ScrollTrigger.min.js"></script>
+
+  <!-- index.js -->
+  <script src="js/index.js"></script>
+  <script src="js/responsive.js"></script>
+</body>
+
+</html>
