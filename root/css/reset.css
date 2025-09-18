@@ -1,5 +1,5 @@
 /* reset.css */
-/* 모든 요소 여백 초기화 */
+/*************** 모든 요소 여백 초기화 ************************/
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@
   display: block;
 }
 
-/* HTML 및 Body 초기화 */
+/*************** HTML 및 Body 초기화 ************************/
 html, body {
   position: relative;
   overflow-x: hidden; /* x축 스크롤 방지 */
@@ -29,43 +29,89 @@ strong {
   display: inline-block;
 }
 
-/* 텍스트 컨테이너 벗어남 방지 */
+/*************** 텍스트 컨테이너 벗어남 방지 ************************/
 h1, h2, h3, h4, h5, h6, p, ol, ul, li {
   overflow-wrap: break-word;
 }
 
-/* 인라인 요소 svg 태그 block화 */
+/*************** 인라인 요소 svg 태그 block화 ************************/
 svg {
   display: block;
 }
 
 
-/* 하이퍼퍼링크 초기화 */
+/*************** 하이퍼퍼링크 초기화 ************************/
 a {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
-/* 리스트 초기화 */
+/*************** 리스트 초기화 ************************/
 ul, ol, li {
   list-style: none;
 }
 
-/* 이미지 및 비디오 초기화 */
+/*************** 이미지 및 비디오 초기화 ************************/
 img, video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* 테이블 초기화 */
+/************ 비디오 컨트롤 및 UI 요소 완전 제거 ***************/
+video {
+  outline: none;
+  border: none;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
+video::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+video::-webkit-media-controls-current-time-display {
+  display: none !important;
+}
+
+video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+video::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+/*************** 테이블 초기화 ************************/
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* 인풋, 버튼 초기화 */
+/*************** 인풋, 버튼 초기화 ************************/
 button, input, textarea {
   font: inherit;
   border: none;
@@ -77,12 +123,12 @@ button {
   cursor: pointer;
 }
 
-/* 블록 요소 초기화 */
+/********************** 블록 요소 초기화 ************************/
 section, article, header, footer, nav, aside {
   display: block;
 }
 
-/* 블록 인용문 초기화 */
+/*************** 블록 인용문 초기화 ************************/
 blockquote, q {
   quotes: none;
 }
@@ -92,14 +138,14 @@ q::before, q::after {
   content: '';
 }
 
-/* 수평선 초기화 */
+/*************** 수평선 초기화 ************************/
 hr {
   border: 0;
   height: 0;
   background: none;
 }
 
-/* 기타 초기화 */
+/*************** 기타 초기화 ************************/
 fieldset {
   border: none;
 }
