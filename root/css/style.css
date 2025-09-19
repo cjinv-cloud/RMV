@@ -24,6 +24,8 @@
   --pc-size-h6: 20px;
   --pc-line-height-h6: 28px;
   --pc-size-p: 20px;
+  --pc-size-p-large: 24px;
+  --pc-line-height-p-large: 32px;
   --pc-line-height-p-v1: 28px;
   --pc-line-height-p-v2: 32px;
 
@@ -34,6 +36,8 @@
   --tab-size-h6: 16px;
   --tab-line-height-h6: 24px;
   --tab-size-p: 16px;
+  --tab-size-p-large: px;
+  --tab-line-height-p-large: px;
   --tab-line-height-p-v1: 24px;
   --tab-line-height-p-v2: 28px;
 
@@ -45,6 +49,8 @@
   --mobile-size-h6: 14px;
   --mobile-line-height-h6: 20px;
   --mobile-size-p: 14px;
+  --mobile-size-p-large: px;
+  --mobile-line-height-p-large: px;
   --mobile-line-height-p-v1: 20px;
   --mobile-line-height-p-v2: 24px;
 
@@ -52,6 +58,12 @@
   --main-font: 'Pretendard';
   --main-font-jp: 'Pretendard JP';
   --point-font: "Quicksand", sans-serif;
+
+  /* 폰트 정렬 기준 */
+  * {
+    vertical-align: bottom;
+  }
+
 
 
   /******************************************
@@ -69,21 +81,20 @@
 
   /******************************************
   1-3. 반응형 너비 breakpoint
-  - pc : 
-  - tab : 미정 --maxW-tab
-  - mobile : 미정 --maxW-mobile
+  - pc : 1060px~
+  - tab : 768px~
+  - mobile : ~767px
   ******************************************/
-  /* 
-  --maxW-tab: px;
-  --maxW-mobile: px;
- */
+  
+  --maxW-tab: 1059px;
+  --maxW-mobile: 767px;
+ 
 
   /******************************************
   1-4. 컨텐츠 너비 (디자인 다 나오면 수정해야함, 우선 pc만 설정)
   - pc
   ㄴ width: 100%
-  ㄴ max-width: 1440px
-  ㄴ margin: 0 240px
+  ㄴ max-width: 1480px - 컨텐츠 너비 1440px + 양쪽 padding 20px*2
   - tab
   ㄴ width: 100%
   ㄴ max-width: 100%
@@ -95,31 +106,29 @@
   ******************************************/
 
   --pc-width: 100%;
-  --pc-max-width: 1288px;
-  --pc-margin: 0 26px;
+  --pc-max-width: 1480px; /* 1440px+20px+20px */
+  --pc-padding: 0 20px;
 
   --tab-width: 100%;
   --tab-max-width: 100%;
-  --tab-margin: 0 20px;
+  --tab-padding: 0 20px;
 
   --mobile-width: 100%;
   --mobile-max-width: 100%;
-  --mobile-margin: 0 16px;
+  --mobile-padding: 0 16px;
+
+  
+  /* 1-5. 폰트 굵기 설정 */
+  --font-weight-nomoral: 400;
+  --font-weight-bold: 700;
+
+  font-family: var(--main-font);
+  font-weight: var(--font-weight-nomoral);
+  font-optical-sizing: auto;
+  font-style: normal;
 
 
 
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: var(--font-weight-bold);
-}
-
-strong {
-  font-weight: var(--font-weight-bold);
 }
 
 /******************************************
@@ -129,19 +138,11 @@ strong {
 /* 2-1. :root */
 :root {
 
-  /* 폰트 굵기 설정 */
-  --font-weight-nomoral: 400;
-  --font-weight-bold: 700;
-
-  font-family: var(--main-font);
-  font-weight: var(--font-weight-nomoral);
-  font-optical-sizing: auto;
-  font-style: normal;
-
-  /* 글자 기본 크기 */
+  /* 글자 기본 크기 및 line-height */
   html,
   body {
-    font-size: var(--desktop-size-p_standard);
+    font-size: var(--pc-size-p);
+
   }
 
   /* h : title */
@@ -167,12 +168,12 @@ strong {
   }
 
   /* p : des, text */
-  p.v1 {
+  p {/* ver 1 */
     font-size: var(--pc-size-p);
     line-height: var(--pc-line-height-p-v1);
   }
 
-  p.v2 {
+  p.v2 {/* ver 2 */
     font-size: var(--pc-size-p);
     line-height: var(--pc-line-height-p-v2);
   }
@@ -190,7 +191,7 @@ strong {
   .inner {
     width: var(--pc-width);
     max-width: var(--pc-max-width);
-    margin: var(--pc-margin);
+    padding: var(--pc-padding);
   }
 
   .icon {
@@ -200,6 +201,18 @@ strong {
     fill: none;
     stroke: currentColor;
     stroke-width: 2;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-bold);
+  }
+
+  strong {
+    font-weight: var(--font-weight-bold);
   }
 
 }
@@ -215,35 +228,4 @@ strong {
   content: "";
   display: block;
   clear: both;
-}
-
-/******************************************
-3-2. 비디오 그리드 스타일
-******************************************/
-.video {
-  width: 540px;
-  margin: 0 auto;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0;
-  width: 100%;
-  aspect-ratio: 16/9;
-}
-
-.video-item {
-  position: relative;
-  overflow: hidden;
-  background: #000;
-}
-
-.video-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  background: var(--main-color);
 }

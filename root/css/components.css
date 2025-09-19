@@ -1,98 +1,87 @@
 /* components.css */ 
 
 /* 1. boxes */
+/* 1-1. box-v1 */
+.box-v1 {
+    background-color: var(--grey-light);
+    padding: 60px 48px;
+    width: 464px; /* warning : 임의 너비, 추후 삭제 및 변경 */
+}
+.box-v1 .txt-wrap {}
+.box-v1 .txt-wrap h4 {
+    margin-bottom: 28px;
+}
+.box-v1 .img-wrap {
+    padding-top: 70px;
+}
+.box-v1 .img-wrap img {
+    width: auto;
+    height: 100%;
+}
+
+/* 1-2. box-v2 */
+.box-v2 {
+    width: 464px; /* warning : 임의 너비, 추후 삭제 및 변경 */
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+.box-v2 .img-wrap {}
+.box-v2 .img-wrap img {
+    width: 100%;
+}
+.box-v2 .txt-wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+}
+.box-v2 .txt-wrap h4 {}
+.box-v2 .txt-wrap h6 {}
+.box-v2 .txt-wrap p {}
 
 
-/* 2. h2.title */
-h2.v1.desktop {margin-bottom: 50px;}
-h2.v1.tablet {margin-bottom: 50px;;}
-h2.v1.mobile {margin-bottom: 30px;}
-
-h2.v2.desktop {margin-bottom: 50px;}
-h2.v2.tablet {margin-bottom: 50px;}
-h2.v2.mobile {
-    margin-bottom: 20px;
+/* 2. title */
+/* 2-1. title-v1 */
+.title-v1 {}
+.title-v1 .point-label {}
+.title-v1 .point-label i {}
+.title-v1 .point-label p {}
+.title-v1 h2 {
     text-align: center;
 }
-h2.v2.desktop::before {
-    content:"";
-    display:block;
-    width: 100px;
-    height: 5px;
-    background-color: var(--grey-heavy-02);
-    margin-bottom: 24px;
-}
-h2.v2.tablet::before {
-    content:"";
-    display:block;
-    width: 100px;
-    height: 5px;
-    background-color: var(--grey-heavy-02);
-    margin-bottom: 20px;
-}
-h2.v2.mobile::before {
-    content:"";
-    display:block;
-    width: 70px;
-    height: 5px;
-    background-color: var(--grey-heavy-02);
-    margin-bottom: 16px;
-}
 
-h2.v3.desktop {margin-bottom: 50px;}
-h2.v3.tablet {margin-bottom: 50px;}
-h2.v3.mobile {
-    margin-bottom: 20px;
-    text-align: center;
+/* 2-2. title-v2 */
+.title-v2 {}
+.title-v2 p.v1 {
+    margin-top: 32px;
 }
-h2.v3.desktop::before {
-    content:"";
-    display:block;
-    width: 100px;
-    height: 5px;
-    background-color: var(--grey-heavy-02);
-    margin-bottom: 24px;
-}
-h2.v3.tablet::before {
-    content:"";
-    display:block;
-    width: 100px;
-    height: 5px;
-    background-color: var(--grey-heavy-02);
-    margin-bottom: 20px;
-}
-h2.v3.mobile::before {
-    content:"";
-    display:block;
-    width: 70px;
-    height: 5px;
-    background-color: var(--grey-heavy-02);
-    margin-bottom: 16px;
-}
-
 
 
 /* 3. buttons */
-/* 3-1 .small *******************************/
-/* .desktop */
-
-/* .tablet */
-
-/* mobile */
 
 
-/* 3-2 .standard ****************************/
-/* .desktop */
+/* 4. point-label */
+.point-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 4px;
+}
+.point-label i {}
+.point-label svg {
+    width: 12px;
+    height: 12px;
+    color: var(--main-color);
+}
+.point-label p {
+    color: #5e5e5e;
+    font-size: 16px;
+    line-height: 32px;
+    /* letter-spacing: 12%; */
+    text-transform: uppercase;
+}
 
-/* .tablet */
-
-/* mobile */
 
 
-/* 3-3.large ********************************/
-/* .desktop */
 
-/* .tablet */
-
-/* mobile */
-
+/* 반응형 별 컴포넌트 수정 : tablet, mobile */

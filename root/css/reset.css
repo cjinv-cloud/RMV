@@ -153,3 +153,6 @@ fieldset {
 legend {
   display: none;
 }
+
+/* <i> 폰트스타일 초기화 */
+i { font-style: normal; }

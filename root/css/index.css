@@ -2,14 +2,404 @@
 @charset "utf-8";
 
 /* header */
-header {}
-header h1 {
+header {
+    width: 100%;
+    position: fixed; /* main보다 레이어 위로 고정 */
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
 }
+
+header .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* nav.menu의 기준 */
+}
+
+header h1 {}
+
 header h1 a {
     width: 195px;
 }
+
 header h1 img {
     width: 100%;
 }
-header nav {}
-header .lang {}
+
+header nav.menu {
+    position: absolute; /* 기준 : header .inner */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+header nav.menu ul {
+    display: flex;
+    column-gap: 60px;
+}
+
+header nav.menu ul li {}
+
+header nav.menu ul li a {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: -2%;
+    transition: all 0.2s ease-in-out;
+}
+header nav.menu ul li a:hover {
+    color: var(--main-color);
+}
+
+header .lang {
+    position: relative; /* nav.lang-list의 기준 */
+}
+
+header .lang .current-lang {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+}
+
+header .lang .current-lang h6 {}
+
+header .lang .current-lang i {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+header .lang .current-lang i svg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+header .lang .current-lang i:hover svg {
+    fill: var(--main-color);
+}
+
+
+header .lang nav.lang-list {
+    position: absolute; /* 기준 : header .lang */
+    top: 28px;
+    width: 100%;
+    display: none; /* warning : 임시 숨김 처리 */
+}
+
+header .lang nav.lang-list ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    margin: 20px 0;
+}
+
+header .lang nav.lang-list ul li {}
+
+header .lang nav.lang-list ul li a {
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+header .lang nav.lang-list ul li a:hover {
+    color: var(--main-color);
+}
+
+/* main */
+main {
+    width: 100%;
+    height: 900px;
+    background: url(../assets/images/main_01.jpg) center / cover no-repeat;
+}
+
+main .txt-wrap {
+    width: 100%;
+    text-align: center;
+    padding-top: 130px;
+}
+
+main .txt-wrap p.title {
+    line-height: normal;
+    font-size: 64px;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 22px;
+}
+
+main .txt-wrap p.des {
+    color: var(--grey-typo-middle);
+    font-size: var(--pc-size-p-large);
+    line-height: var(--pc-line-height-p-large);
+}
+
+/* content-container */
+.content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 320px 0;
+    row-gap: 280px;
+}
+
+/* about-us */
+.about-us {
+    display: flex;
+    flex-direction: column;
+    row-gap: 180px;
+}
+
+.about-us .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* flex 아이템들을 상단 정렬 */
+}
+
+.about-us .title .point-label {
+    padding: 0; /* components.css의 padding: 8px 4px 제거 */
+    align-self: flex-start; /* 본인만 상단 정렬하여 본인 높이만 가짐 */
+}
+
+.about-us .title .point-label i {}
+
+.about-us .title .point-label i svg {}
+
+.about-us .title .point-label p {}
+
+.about-us .title .txt-wrap {
+    width: 800px;
+}
+
+.about-us .title .txt-wrap p {
+    font-weight: var(--font-weight-bold);
+    font-size: 36px;
+    line-height: 50px;
+}
+
+.about-us .contents {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+}
+.about-us .contents .img-box {
+    max-width: 707px;
+}
+.about-us .contents .img-box img {
+    width: 100%;
+}
+.about-us .contents .txt-wrap {
+    max-width: 611px;
+}
+.about-us .contents .txt-wrap p.des {
+    color: var(--grey-typo-light);
+    margin-bottom: 35px;
+}
+.about-us .contents .txt-wrap .detail {}
+.about-us .contents .txt-wrap .detail ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+}
+.about-us .contents .txt-wrap .detail ul li {
+    width: 134px;
+    flex-shrink: 0; /* flex에 의한 너비 조정 방지 */
+}
+.about-us .contents .txt-wrap .detail ul li p.per {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 64px;
+    color: var(--main-color);
+    line-height: normal;
+    margin-bottom: 4px;
+}
+.about-us .contents .txt-wrap .detail ul li p.per span {
+    font-size: var(--pc-size-h3);
+    font-weight: var(--font-weight-bold);
+}
+.about-us .contents .txt-wrap .detail ul li p.keyword {
+    color: var(--grey-typo-light);
+}
+
+
+.ai-memory-pet {}
+.ai-memory-pet .txt-wrap {}
+.ai-memory-pet .txt-wrap h2 {}
+.ai-memory-pet .txt-wrap .wrapper {}
+.ai-memory-pet .txt-wrap .wrapper h4 {}
+.ai-memory-pet .txt-wrap .wrapper .des-wrap {}
+.ai-memory-pet .txt-wrap .wrapper .des-wrap p {}
+.ai-memory-pet .video-wrap {
+    max-width: 540px;
+    width: 100%;
+    margin: 0 auto;
+}
+.ai-memory-pet .video-wrap video {}
+.ai-memory-pet .video-wrap video source {}
+
+
+
+/* solutions */
+.solutions {}
+
+.solutions .title-v1 {}
+
+.solutions .title-v1 .point-label {}
+
+.solutions .title-v1 .point-label i {}
+
+.solutions .title-v1 .point-label i img {}
+
+.solutions .title-v1 .point-label p {}
+
+.solutions .title-v1 h2 {}
+
+.solutions .contents {}
+
+.solutions .contents ul {}
+
+.solutions .contents ul li.box-v1 {}
+
+.solutions .contents ul li.box-v1 .txt-wrap {}
+
+.solutions .contents ul li.box-v1 .txt-wrap h4 {}
+
+.solutions .contents ul li.box-v1 .txt-wrap p.v2 {}
+
+.solutions .contents ul li.box-v1 .img-wrap {}
+
+.solutions .contents ul li.box-v1 .img-wrap img {}
+
+/* platform */
+.platform {}
+
+.platform .left-contents {}
+
+.platform .left-contents .title-v2 {}
+
+.platform .left-contents .title-v2 .title-v1 {}
+
+.platform .left-contents .title-v2 .title-v1 .point-label {}
+
+.platform .left-contents .title-v2 .title-v1 .point-label i {}
+
+.platform .left-contents .title-v2 .title-v1 .point-label i img {}
+
+.platform .left-contents .title-v2 .title-v1 .point-label p {}
+
+.platform .left-contents .title-v2 .title-v1 h2 {}
+
+.platform .left-contents .title-v2 p.v1 {}
+
+.platform .left-contents .icon-wrap {}
+
+.platform .left-contents .icon-wrap ul {}
+
+.platform .left-contents .icon-wrap ul li {}
+
+.platform .left-contents .icon-wrap ul li img {}
+
+.platform .left-contents button.btn.learn-more-btn {}
+
+.platform .left-contents button.btn.learn-more-btn a {}
+
+.platform .left-contents button.btn.learn-more-btn a i {}
+
+.platform .left-contents button.btn.learn-more-btn a i img {}
+
+.platform .right-contents {}
+
+.platform .right-contents video {}
+
+.platform .right-contents video source {}
+
+/* token */
+.token {}
+
+.token .txt-wrap {}
+
+.token .txt-wrap .title-v2 {}
+
+.token .txt-wrap .title-v2 .title-v1 {}
+
+.token .txt-wrap .title-v2 .title-v1 .point-label {}
+
+.token .txt-wrap .title-v2 .title-v1 .point-label i {}
+
+.token .txt-wrap .title-v2 .title-v1 .point-label i img {}
+
+.token .txt-wrap .title-v2 .title-v1 .point-label p {}
+
+.token .txt-wrap .title-v2 .title-v1 h2 {}
+
+.token .txt-wrap .title-v2 p.v1 {}
+
+/* eco-system */
+.eco-system {}
+
+.eco-system .title-v1 {}
+
+.eco-system .title-v1 .point-label {}
+
+.eco-system .title-v1 .point-label i {}
+
+.eco-system .title-v1 .point-label i img {}
+
+.eco-system .title-v1 .point-label p {}
+
+.eco-system .title-v1 h2 {}
+
+.eco-system .contents {}
+
+.eco-system .contents ul {}
+
+.eco-system .contents ul li.box-v2 {}
+
+.eco-system .contents ul li.box-v2 .img-wrap {}
+
+.eco-system .contents ul li.box-v2 .img-wrap img {}
+
+.eco-system .contents ul li.box-v2 .txt-wrap {}
+
+.eco-system .contents ul li.box-v2 .txt-wrap h4 {}
+
+.eco-system .contents ul li.box-v2 .txt-wrap h6 {}
+
+.eco-system .contents ul li.box-v2 .txt-wrap p {}
+
+/* experience */
+.experience {}
+
+.experience .wrapper {}
+
+.experience .wrapper .txt {}
+
+.experience .wrapper .txt p.title {}
+
+.experience .wrapper .txt p.des {}
+
+/* footer */
+footer {}
+
+footer .inner {}
+
+footer .inner .info {}
+
+footer .inner .info h1 {}
+
+footer .inner .info h1 a {}
+
+footer .inner .info h1 a img {}
+
+footer .inner .info nav.menu {}
+
+footer .inner .info nav.menu ul {}
+
+footer .inner .info nav.menu ul li {}
+
+footer .inner .info nav.menu ul li a {}
+
+footer .copy {}
+
+footer .copy p {}
