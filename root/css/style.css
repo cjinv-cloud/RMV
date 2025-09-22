@@ -213,6 +213,7 @@
 
   strong {
     font-weight: var(--font-weight-bold);
+    color: var(--main-color);
   }
 
 }

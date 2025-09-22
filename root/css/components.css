@@ -2,22 +2,35 @@
 
 /* 1. boxes */
 /* 1-1. box-v1 */
-.box-v1 {
-    background-color: var(--grey-light);
+.box-v1{
+    background: var(--grey-light);
     padding: 60px 48px;
-    width: 464px; /* warning : 임의 너비, 추후 삭제 및 변경 */
-}
-.box-v1 .txt-wrap {}
-.box-v1 .txt-wrap h4 {
-    margin-bottom: 28px;
-}
-.box-v1 .img-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   /* 위·아래 분배 */
+    box-sizing: border-box;
+  }
+  
+  /* 텍스트 영역 그대로 */
+  .box-v1 .txt-wrap h4{ margin-bottom: 28px; }
+  
+  /* Figma: Horizontal, top padding 70, gap 10, 높이 채우기 */
+  .box-v1 .img-wrap{
+    display: flex;
+    align-items: flex-end;            /* 하단 맞춤 */
+    justify-content: center;
     padding-top: 70px;
-}
-.box-v1 .img-wrap img {
-    width: auto;
+    min-height: 323px;                /* Figma 높이 근거 */
+    box-sizing: border-box;
+  }
+  
+  /* 이미지: 높이 100%, 가로는 비율 유지 자동 */
+  .box-v1 .img-wrap img{
     height: 100%;
-}
+    width: auto;
+    max-width: 100%;                  /* 넘침 방지 */
+  }
+  
 
 /* 1-2. box-v2 */
 .box-v2 {

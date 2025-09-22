@@ -177,6 +177,8 @@ main .txt-wrap p.des {
     line-height: 50px;
 }
 
+.about-us .title .txt-wrap p strong {}
+
 .about-us .contents {
     display: flex;
     justify-content: space-between;
@@ -202,7 +204,6 @@ main .txt-wrap p.des {
     column-gap: 24px;
 }
 .about-us .contents .txt-wrap .detail ul li {
-    width: 134px;
     flex-shrink: 0; /* flex에 의한 너비 조정 방지 */
 }
 .about-us .contents .txt-wrap .detail ul li p.per {
@@ -210,66 +211,47 @@ main .txt-wrap p.des {
     justify-content: flex-start;
     align-items: center;
     font-size: 64px;
-    color: var(--main-color);
     line-height: normal;
     margin-bottom: 4px;
+    font-size: 44px;
 }
-.about-us .contents .txt-wrap .detail ul li p.per span {
-    font-size: var(--pc-size-h3);
-    font-weight: var(--font-weight-bold);
+.about-us .contents .txt-wrap .detail ul li p.per strong {
+    font-size: 64px;
+    font-weight: 400;
 }
 .about-us .contents .txt-wrap .detail ul li p.keyword {
     color: var(--grey-typo-light);
 }
 
 
-.ai-memory-pet {}
-.ai-memory-pet .txt-wrap {}
-.ai-memory-pet .txt-wrap h2 {}
+.ai-memory-pet {
+    display: flex;
+    justify-content: space-between
+}
+.ai-memory-pet .txt-wrap {
+    width: 693px;
+}
+.ai-memory-pet .txt-wrap h2 {
+    margin-bottom: 48px;
+}
 .ai-memory-pet .txt-wrap .wrapper {}
-.ai-memory-pet .txt-wrap .wrapper h4 {}
+.ai-memory-pet .txt-wrap .wrapper h4 {
+    color: var(--main-color);
+    margin-bottom: 24px;
+
+}
 .ai-memory-pet .txt-wrap .wrapper .des-wrap {}
-.ai-memory-pet .txt-wrap .wrapper .des-wrap p {}
+.ai-memory-pet .txt-wrap .wrapper .des-wrap p {
+    color: var(--grey-typo-light);
+}
 .ai-memory-pet .video-wrap {
     max-width: 540px;
     width: 100%;
-    margin: 0 auto;
 }
 .ai-memory-pet .video-wrap video {}
 .ai-memory-pet .video-wrap video source {}
 
 
-
-/* solutions */
-.solutions {}
-
-.solutions .title-v1 {}
-
-.solutions .title-v1 .point-label {}
-
-.solutions .title-v1 .point-label i {}
-
-.solutions .title-v1 .point-label i img {}
-
-.solutions .title-v1 .point-label p {}
-
-.solutions .title-v1 h2 {}
-
-.solutions .contents {}
-
-.solutions .contents ul {}
-
-.solutions .contents ul li.box-v1 {}
-
-.solutions .contents ul li.box-v1 .txt-wrap {}
-
-.solutions .contents ul li.box-v1 .txt-wrap h4 {}
-
-.solutions .contents ul li.box-v1 .txt-wrap p.v2 {}
-
-.solutions .contents ul li.box-v1 .img-wrap {}
-
-.solutions .contents ul li.box-v1 .img-wrap img {}
 
 /* platform */
 .platform {}
