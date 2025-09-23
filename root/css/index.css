@@ -4,7 +4,8 @@
 /* header */
 header {
     width: 100%;
-    position: fixed; /* main보다 레이어 위로 고정 */
+    position: fixed;
+    /* main보다 레이어 위로 고정 */
     display: flex;
     justify-content: center;
     padding: 30px 0;
@@ -14,7 +15,8 @@ header .inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* nav.menu의 기준 */
+    position: relative;
+    /* nav.menu의 기준 */
 }
 
 header h1 {}
@@ -28,10 +30,11 @@ header h1 img {
 }
 
 header nav.menu {
-    position: absolute; /* 기준 : header .inner */
+    position: absolute;
+    /* 기준 : header .inner */
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 header nav.menu ul {
@@ -49,12 +52,14 @@ header nav.menu ul li a {
     letter-spacing: -2%;
     transition: all 0.2s ease-in-out;
 }
+
 header nav.menu ul li a:hover {
     color: var(--main-color);
 }
 
 header .lang {
-    position: relative; /* nav.lang-list의 기준 */
+    position: relative;
+    /* nav.lang-list의 기준 */
 }
 
 header .lang .current-lang {
@@ -83,10 +88,12 @@ header .lang .current-lang i:hover svg {
 
 
 header .lang nav.lang-list {
-    position: absolute; /* 기준 : header .lang */
+    position: absolute;
+    /* 기준 : header .lang */
     top: 28px;
     width: 100%;
-    display: none; /* warning : 임시 숨김 처리 */
+    display: none;
+    /* warning : 임시 숨김 처리 */
 }
 
 header .lang nav.lang-list ul {
@@ -102,6 +109,7 @@ header .lang nav.lang-list ul li a {
     transition: all 0.2s ease-in-out;
     text-align: center;
 }
+
 header .lang nav.lang-list ul li a:hover {
     color: var(--main-color);
 }
@@ -116,7 +124,8 @@ main {
 main .txt-wrap {
     width: 100%;
     text-align: center;
-    padding-top: 130px;
+    padding-top: 220px;
+
 }
 
 main .txt-wrap p.title {
@@ -132,44 +141,26 @@ main .txt-wrap p.des {
     line-height: var(--pc-line-height-p-large);
 }
 
-/* content-container */
-.content-container {
+/* .article-wrapper */
+.article-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 320px 0;
-    row-gap: 280px;
+    margin: 250px 0;
+    row-gap: 250px;
 }
 
 /* about-us */
 .about-us {
-    display: flex;
-    flex-direction: column;
-    row-gap: 180px;
-}
-
-.about-us .title {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* flex 아이템들을 상단 정렬 */
+    flex-direction: column;
+    row-gap: 140px;
+    align-items: center;
 }
 
-.about-us .title .point-label {
-    padding: 0; /* components.css의 padding: 8px 4px 제거 */
-    align-self: flex-start; /* 본인만 상단 정렬하여 본인 높이만 가짐 */
-}
 
-.about-us .title .point-label i {}
-
-.about-us .title .point-label i svg {}
-
-.about-us .title .point-label p {}
-
-.about-us .title .txt-wrap {
-    width: 800px;
-}
 
 .about-us .title .txt-wrap p {
     font-weight: var(--font-weight-bold);
@@ -179,86 +170,99 @@ main .txt-wrap p.des {
 
 .about-us .title .txt-wrap p strong {}
 
-.about-us .contents {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 50px;
-}
-.about-us .contents .img-box {
-    max-width: 707px;
-}
-.about-us .contents .img-box img {
-    width: 100%;
-}
-.about-us .contents .txt-wrap {
-    max-width: 611px;
-}
-.about-us .contents .txt-wrap p.des {
-    color: var(--grey-typo-light);
-    margin-bottom: 35px;
-}
-.about-us .contents .txt-wrap .detail {}
-.about-us .contents .txt-wrap .detail ul {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 24px;
-}
-.about-us .contents .txt-wrap .detail ul li {
-    flex-shrink: 0; /* flex에 의한 너비 조정 방지 */
-}
-.about-us .contents .txt-wrap .detail ul li p.per {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 64px;
-    line-height: normal;
-    margin-bottom: 4px;
-    font-size: 44px;
-}
-.about-us .contents .txt-wrap .detail ul li p.per strong {
-    font-size: 64px;
-    font-weight: 400;
-}
-.about-us .contents .txt-wrap .detail ul li p.keyword {
-    color: var(--grey-typo-light);
-}
+/* warning : 채워넣기 > 슬픔과 그리움 속 치유의 공간 */
+.about-us .contents-container {}
 
+/*******************************************/
 
 .ai-memory-pet {
+    padding: 200px 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between
+    justify-content: center;
+    background-color: var(--grey-typo-dark);
 }
-.ai-memory-pet .txt-wrap {
-    width: 693px;
+
+.ai-memory-pet .whole-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-.ai-memory-pet .txt-wrap h2 {
+
+.ai-memory-pet .whole-wrapper .contents-wrap {
+    width: 708px;
+    color: var(--white);
+    flex-shrink: 0;
+    margin-bottom: 64px;
+    margin-right: 20px;
+}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap {
+    margin-bottom: 64px;
+}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .title-v5 {
     margin-bottom: 48px;
 }
-.ai-memory-pet .txt-wrap .wrapper {}
-.ai-memory-pet .txt-wrap .wrapper h4 {
-    color: var(--main-color);
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .title-v5 h5.label {
+    color: var(--label-grey);
+
+}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .title-v5 h2 {}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .wrapper {}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .wrapper h4 {
     margin-bottom: 24px;
 
 }
-.ai-memory-pet .txt-wrap .wrapper .des-wrap {}
-.ai-memory-pet .txt-wrap .wrapper .des-wrap p {
-    color: var(--grey-typo-light);
-}
-.ai-memory-pet .video-wrap {
-    max-width: 540px;
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .wrapper .des-wrap {}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .wrapper .des-wrap p {}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .circle-wrap {
     width: 100%;
+    display: flex;
+    column-gap: 18px;
 }
-.ai-memory-pet .video-wrap video {}
-.ai-memory-pet .video-wrap video source {}
+
+.ai-memory-pet .whole-wrapper .contents-wrap .circle-wrap .circle-box {
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.ai-memory-pet .whole-wrapper .video-wrap {
+    flex-shrink: 0;
+    width: 610px;
+    height: 610px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.ai-memory-pet .whole-wrapper .video-wrap video {}
+
+.ai-memory-pet .whole-wrapper .video-wrap video source {}
 
 
 
 /* platform */
-.platform {}
+.platform {
+    max-width: 1271px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-.platform .left-contents {}
+.platform .left-contents {
+    width: 625px;
+}
 
-.platform .left-contents .title-v2 {}
+.platform .left-contents .title-v2 {
+    margin-right: 50px;
+}
 
 .platform .left-contents .title-v2 .title-v1 {}
 
@@ -270,7 +274,9 @@ main .txt-wrap p.des {
 
 .platform .left-contents .title-v2 .title-v1 .point-label p {}
 
-.platform .left-contents .title-v2 .title-v1 h2 {}
+.platform .left-contents .title-v2 .title-v1 h2 {
+    text-align: left;
+}
 
 .platform .left-contents .title-v2 p.v1 {}
 

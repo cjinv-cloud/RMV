@@ -70,13 +70,18 @@
   1-2. 전역 CSS 변수 정의
   - 색상
   ******************************************/
-  --main-color: #FF935B;
+  --main-color: #FF8F54;
+  --main-color-light: #FFD8C3;
+  --main-color-light2: #FFF2EB;
+  --main-color-dark: #AA4C1A;
   --grey-typo-light: #5E5E5E;
   --grey-typo-dark: #232323;
   --grey-typo-middle: #444444;
   --grey-light: #FAFAFA;
   --black: #000;
   --white: #fff;
+  --label-grey: #8c8c8c;
+  --label-white: rgba(255, 255, 255, 0.7);
 
 
   /******************************************
@@ -94,7 +99,7 @@
   1-4. 컨텐츠 너비 (디자인 다 나오면 수정해야함, 우선 pc만 설정)
   - pc
   ㄴ width: 100%
-  ㄴ max-width: 1480px - 컨텐츠 너비 1440px + 양쪽 padding 20px*2
+  ㄴ max-width: 1520px - 컨텐츠 너비 1440px + 양쪽 padding 40px*2
   - tab
   ㄴ width: 100%
   ㄴ max-width: 100%
@@ -106,15 +111,15 @@
   ******************************************/
 
   --pc-width: 100%;
-  --pc-max-width: 1480px; /* 1440px+20px+20px */
-  --pc-padding: 0 20px;
+  --pc-con-width: 1520px; /* 1440px+40px+40px */
+  --pc-padding: 0 40px;
 
   --tab-width: 100%;
-  --tab-max-width: 100%;
+  --tab-con-width: 100%;
   --tab-padding: 0 20px;
 
   --mobile-width: 100%;
-  --mobile-max-width: 100%;
+  --mobile-mcon-width: 100%;
   --mobile-padding: 0 16px;
 
   
@@ -178,6 +183,10 @@
     line-height: var(--pc-line-height-p-v2);
   }
 
+  p.large {/* large */
+    font-size: var(--pc-size-p-large);
+  }
+
 
   html,
   body,
@@ -190,7 +199,7 @@
   /* 컨텐츠 너비 */
   .inner {
     width: var(--pc-width);
-    max-width: var(--pc-max-width);
+    max-width: var(--pc-con-width);
     padding: var(--pc-padding);
   }
 

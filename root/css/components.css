@@ -69,6 +69,45 @@
     margin-top: 32px;
 }
 
+/* 2-4. title-v4 */
+.title-v4 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* flex 아이템들을 상단 정렬 */
+}
+
+.title-v4 .title-v1 {}
+
+.title-v4 .title-v1 .point-label {}
+
+.title-v4 .point-label i {}
+
+.title-v4 .point-label i svg {}
+
+.title-v4 .point-label p {}
+
+.title-v4 .txt-wrap {
+    max-width: 750px;
+}
+
+.title-v4 .txt-wrap p {
+    font-size: var(--pc-size-h4);
+}
+
+/* 2-5. title-v5 */
+/* 
+<div class="title-v5">
+ <h5 class="label">레이블</h5>
+ <h2>제목</h2>
+</div>
+*/
+.title-v5 {}
+.title-v5 h5.label {
+    margin-bottom: 18px;
+}
+.title-v5 h2 {}
+
 
 /* 3. buttons */
 
@@ -92,6 +131,29 @@
     line-height: 32px;
     /* letter-spacing: 12%; */
     text-transform: uppercase;
+}
+
+/* 5. circle-box */
+.circle-box {
+    padding: 20px 44px;
+    border: 0.5px solid var(--grey-light);
+    border-radius: 500px;
+    background-color: var(--grey-typo-light);
+
+}
+.circle-box .wrap {
+    padding: 0 8px;
+}
+.circle-box .wrap .img-wrap {}
+.circle-box .wrap .img-wrap img {
+    width: 100%;
+}
+.circle-box .wrap p.keyword {
+    text-align: center;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
 }
 
 
