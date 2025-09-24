@@ -3,32 +3,20 @@
 /* 1. boxes */
 /* 1-1. box-v1 */
 .box-v1{
-    background: var(--grey-light);
+    background: var(--white);
     padding: 60px 48px;
     display: flex;
     flex-direction: column;
+    row-gap: 28px;
     justify-content: space-between;   /* 위·아래 분배 */
-    box-sizing: border-box;
+    border-radius: 20px;
   }
   
-  /* 텍스트 영역 그대로 */
-  .box-v1 .txt-wrap h4{ margin-bottom: 28px; }
-  
-  /* Figma: Horizontal, top padding 70, gap 10, 높이 채우기 */
-  .box-v1 .img-wrap{
-    display: flex;
-    align-items: flex-end;            /* 하단 맞춤 */
-    justify-content: center;
-    padding-top: 70px;
-    min-height: 323px;                /* Figma 높이 근거 */
-    box-sizing: border-box;
+  .box-v1 h3 {
+    color: var(--main-color);
   }
-  
-  /* 이미지: 높이 100%, 가로는 비율 유지 자동 */
-  .box-v1 .img-wrap img{
-    height: 100%;
-    width: auto;
-    max-width: 100%;                  /* 넘침 방지 */
+  .box-v1 p {
+    color: var(--grey-typo-light);
   }
   
 

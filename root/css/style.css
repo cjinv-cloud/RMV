@@ -80,6 +80,7 @@
   --grey-light: #FAFAFA;
   --black: #000;
   --white: #fff;
+  --white-25:rgba(255,255,255,.25);
   --label-grey: #8c8c8c;
   --label-white: rgba(255, 255, 255, 0.7);
 
