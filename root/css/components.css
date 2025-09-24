@@ -39,7 +39,10 @@
     flex-direction: column;
     row-gap: 24px;
 }
-.box-v2 .img-wrap {}
+.box-v2 .img-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+}
 .box-v2 .img-wrap img {
     width: 100%;
 }
@@ -67,6 +70,7 @@
 .title-v2 {}
 .title-v2 p.v1 {
     margin-top: 32px;
+    color: var(--grey-typo-light);
 }
 
 /* 2-4. title-v4 */
@@ -74,7 +78,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* flex 아이템들을 상단 정렬 */
+    align-items: flex-end; /* flex 아이템들을 하단 정렬 */
 }
 
 .title-v4 .title-v1 {}
@@ -110,6 +114,53 @@
 
 
 /* 3. buttons */
+/* 3-1. btn_name-icon-v1 */
+/*  white  */
+button.btn_name-icon-v1 {}
+button.btn_name-icon-v1 a {
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    column-gap: 12px;
+    padding: 16px 24px;
+    border-radius: 60px;
+    font-weight: var(--font-weight-bold);
+}
+button.btn_name-icon-v1 a i {}
+button.btn_name-icon-v1 a i svg {
+    width: 26px;
+    height: 26px;
+}
+button.btn_name-icon-v1 a i svg use {}
+
+/*  light  */
+button.btn_name-icon-v1.light a {
+    background-color: var(--grey-light);
+    color: var(--grey-typo-dark);
+}
+button.btn_name-icon-v1.light a i svg {
+    color: var(--grey-typo-dark);
+}
+/* white */
+button.btn_name-icon-v1.white a {
+    background-color: var(--white);
+    color: var(--grey-typo-dark);
+}
+button.btn_name-icon-v1.white a i svg {
+    color: var(--grey-typo-dark);
+}
+
+/* black */
+button.btn_name-icon-v1.black a {
+    background-color: var(--grey-typo-dark);
+    color: var(--white);
+}
+button.btn_name-icon-v1.black a i svg {
+    color: var(--white);
+}
+
+/* 3-2. btn_name-icon-v2 */
+/* 3-3. btn_name */
 
 
 /* 4. point-label */
