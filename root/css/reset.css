@@ -110,7 +110,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+tr {
+  display: table-row;
+}
+th, td {
+  display: table-cell;
+}
+ */
 /*************** 인풋, 버튼 초기화 ************************/
 button, input, textarea {
   font: inherit;
@@ -120,7 +126,7 @@ button, input, textarea {
 }
 
 button {
-  cursor: pointer;
+  cursor: default;
 }
 
 /********************** 블록 요소 초기화 ************************/

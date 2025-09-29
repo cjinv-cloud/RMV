@@ -202,6 +202,7 @@
     width: var(--pc-width);
     max-width: var(--pc-con-width);
     padding: var(--pc-padding);
+    margin: 0 auto;
   }
 
   .icon {

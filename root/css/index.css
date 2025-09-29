@@ -1,119 +1,6 @@
 /* index.css */
 @charset "utf-8";
 
-/* header */
-header {
-    width: 100%;
-    position: fixed;
-    /* main보다 레이어 위로 고정 */
-    display: flex;
-    justify-content: center;
-    padding: 30px 0;
-}
-
-header .inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    /* nav.menu의 기준 */
-}
-
-header h1 {}
-
-header h1 a {
-    width: 195px;
-}
-
-header h1 img {
-    width: 100%;
-}
-
-header nav.menu {
-    position: absolute;
-    /* 기준 : header .inner */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-header nav.menu ul {
-    display: flex;
-    column-gap: 60px;
-}
-
-header nav.menu ul li {}
-
-header nav.menu ul li a {
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-    letter-spacing: -2%;
-    transition: all 0.2s ease-in-out;
-}
-
-header nav.menu ul li a:hover {
-    color: var(--main-color);
-}
-
-header .lang {
-    position: relative;
-    /* nav.lang-list의 기준 */
-}
-
-header .lang .current-lang {
-    display: flex;
-    align-items: center;
-    column-gap: 6px;
-}
-
-header .lang .current-lang h6 {}
-
-header .lang .current-lang i {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-header .lang .current-lang i svg {
-    width: 100%;
-    height: 100%;
-    transition: all 0.2s ease-in-out;
-}
-
-header .lang .current-lang i:hover svg {
-    fill: var(--main-color);
-}
-
-
-header .lang nav.lang-list {
-    position: absolute;
-    /* 기준 : header .lang */
-    top: 28px;
-    width: 100%;
-    display: none;
-    /* warning : 임시 숨김 처리 */
-}
-
-header .lang nav.lang-list ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: 32px;
-    margin: 20px 0;
-}
-
-header .lang nav.lang-list ul li {}
-
-header .lang nav.lang-list ul li a {
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-}
-
-header .lang nav.lang-list ul li a:hover {
-    color: var(--main-color);
-}
-
 /* main */
 main {
     width: 100%;
@@ -124,7 +11,7 @@ main {
 main .txt-wrap {
     width: 100%;
     text-align: center;
-    padding-top: 220px;
+    padding-top: 270px;
 
 }
 
@@ -170,7 +57,6 @@ main .txt-wrap p.des {
 
 .about-us .title .txt-wrap p strong {}
 
-/* warning : 채워넣기 > 슬픔과 그리움 속 치유의 공간 */
 .about-us .contents-container {
     width: 100%;
     padding: 200px 0;
@@ -242,14 +128,15 @@ main .txt-wrap p.des {
 .about-us .contents-container .inner .charts .donut-col h6.des {
     text-align: center;
     position: absolute;
-    right: 0;
-    top: 70px;
     padding: 12px 20px;
     background-color: var(--white);
     color: var(--main-color);
     border-radius: 60px;
+
+    pointer-events: none;
+    transform: translate(10px, -50%);
+    z-index: 10;
     display: none;
-    /* 페이드 효과를 위해 기본적으로 숨김 */
 }
 
 .about-us .contents-container .inner .charts .donut-col p.per {
@@ -261,19 +148,23 @@ main .txt-wrap p.des {
     transform: translate(-50%,20px);
 }
 
-.about-us .contents-container .inner .charts .donut-col h3.donut-note {
+.about-us .contents-container .inner .charts .donut-col p.donut-note {
     text-align: center;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 10px;
+    text-align: center;
 }
 
 .about-us .contents-container .inner .charts .bars-col {
     width: 640px;
 }
 
-.about-us .contents-container .inner .charts .bars-col p {}
+.about-us .contents-container .inner .charts .bars-col p.des {
+    margin-bottom: 35px;
+}
+
 .about-us .contents-container .inner .charts .bars-col .wrapper {
     display: flex;
     flex-direction: column;
@@ -281,21 +172,34 @@ main .txt-wrap p.des {
 }
 .about-us .contents-container .inner .charts .bars-col .wrapper .bar-box {
     width: 100%;
-    position: relative;
     background-color: var(--white-25);
-    width: 640px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .about-us .contents-container .inner .charts .bars-col .wrapper .bar-box h4 {
     color: var(--main-color);
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
+    background-color: var(--white);
+    padding: 20px 24px;
+}
+.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box:nth-child(1) h4 {
+    width: 32%;
+}
+.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box:nth-child(2) h4 {
+    width: 52%;
+}
+.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box:nth-child(3) h4 {
+    width: 66%;
 }
 
-.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box canvas.bar {
-    width: 100%;
+.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box p.per {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    padding-right: 24px;
 }
+
+
+
 
 
 
@@ -342,7 +246,6 @@ main .txt-wrap p.des {
 
 .ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .wrapper h4 {
     margin-bottom: 24px;
-
 }
 
 .ai-memory-pet .whole-wrapper .contents-wrap .txt-wrap .wrapper .des-wrap {}
@@ -511,80 +414,3 @@ main .txt-wrap p.des {
 
 .eco-system .contents ul li.box-v2 .txt-wrap p {}
 
-/* experience */
-.experience {
-    width: 100%;
-    height: 570px;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.3)),
-        url(../assets/images/experience_bg.jpg) center / cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.experience .wrapper {
-    text-align: center;
-}
-
-.experience .wrapper .txt {
-    color: var(--white);
-}
-
-.experience .wrapper .txt p.title {
-    font-weight: var(--font-weight-bold);
-    font-size: 48px;
-    margin-bottom: 24px;
-}
-
-.experience .wrapper .txt p.des {}
-
-/* footer */
-footer {
-    height: 400px;
-    color: var(--main-color);
-    padding: 120px 0;
-}
-
-footer .inner {
-    margin: 0 auto;
-}
-
-footer .inner .info {
-    display: flex;
-    width: 100%;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--main-color);
-    justify-content: space-between;
-    margin-bottom: 48px;
-}
-
-footer .inner .info h1 {}
-
-footer .inner .info h1 a {}
-
-footer .inner .info h1 a img {}
-
-footer .inner .info nav.menu {}
-
-footer .inner .info nav.menu ul {
-    display: flex;
-    column-gap: 64px;
-}
-
-footer .inner .info nav.menu ul li {}
-
-footer .inner .info nav.menu ul li a {
-    color: var(--main-color);
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 20px;
-}
-
-footer .copy {}
-
-footer .copy p {
-    text-align: right;
-}

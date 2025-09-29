@@ -1,10 +1,10 @@
-// index.js
+//index.js
 
-/*chart.js****************************************************************************************/
-//색상
+const $label = $('.contents-container .charts .donut-col h6.des'); // 커서 레이블 참조
+const pad = 12; // 화면 밖 넘침 방지용 여백
+const canvasEl = document.getElementById("donut"); // ← 캔버스 엘리먼트 참조 (커서 토글용)
 
-// 도넛 ////////////////////////////////////////////////////////////////////////////////////////////
-new Chart(document.getElementById("donut"), {
+const chart = new Chart(canvasEl, {
     type: "doughnut",
     data: {
         datasets: [{
@@ -15,249 +15,63 @@ new Chart(document.getElementById("donut"), {
     },
     options: {
         cutout: '50%',
-        rotation: -135,       // 시작각: -120°
-        circumference: 270,   // 300°만 그려서 60° 빈틈
-        onHover: function (event, activeElements) {
-            if (activeElements.length && activeElements[0].index === 0) {
-                $('.contents-container .charts .donut-col h6.des').fadeIn(200);  // 300ms 페이드인
+        rotation: -135,
+        circumference: 270,
+
+        // Chart.js v4 서명: onHover(event, activeElements, chart)
+        onHover: function (event, activeElements, chart) {
+            const canvas = chart.canvas;
+            const parent = canvas.parentElement;
+
+            // --- (생략) 좌표 계산/클램프 로직 그대로 사용 ---
+            const clientX = (event.native?.clientX ?? event.clientX);
+            const clientY = (event.native?.clientY ?? event.clientY);
+            const pageX = clientX + window.scrollX;
+            const pageY = clientY + window.scrollY;
+            const parentRect = parent.getBoundingClientRect();
+            const parentLeft = parentRect.left + window.scrollX;
+            const parentTop = parentRect.top + window.scrollY;
+            let left = pageX - parentLeft;
+            let top = pageY - parentTop;
+
+            if ($label.is(':hidden')) {
+                $label.css({ visibility: 'hidden', display: 'block' });
+            }
+            const labelW = $label.outerWidth();
+            const labelH = $label.outerHeight();
+            const parentW = parent.clientWidth;
+            const parentH = parent.clientHeight;
+
+            left = Math.min(Math.max(left, pad), parentW - labelW - pad);
+            top = Math.min(Math.max(top, pad), parentH - pad);
+
+            $label.css({ left: left + 'px', top: top + 'px' });
+
+            if ($label.css('visibility') === 'hidden') {
+                $label.css({ visibility: '', display: 'none' });
+            }
+
+            // ─────────────────────────────────────────────
+            // 핵심 추가 ①: 세그먼트(인덱스 0) 위에서 커서 숨기기
+            // ─────────────────────────────────────────────
+            const overTargetSlice = activeElements.length && activeElements[0].index === 0;
+
+            if (overTargetSlice) {
+                $label.stop(true, true).fadeIn(200);
+                canvasEl.style.cursor = 'none';     // ← 커서 숨김
             } else {
-                $('.contents-container .charts .donut-col h6.des').fadeOut(200); // 300ms 페이드아웃
+                $label.stop(true, true).fadeOut(200);
+                canvasEl.style.cursor = 'default';  // ← 커서 복원
             }
         }
     }
-
 });
 
-
-// 막대 ///////////////////////
-new Chart(document.getElementById("bars-1"), {
-    type: "bar",
-    data: {
-        labels: ["불면증"],
-        datasets: [{
-            data: [32],                // 막대 길이만 결정. 숫자 표시는 안 함
-            backgroundColor: '#fff',
-            borderWidth: 0,
-            borderRadius: 0,
-            barThickness: 73,
-        }]
-    },
-    options: {
-        indexAxis: 'y',
-        plugins: {
-            legend: {
-                display: false             // 차트 상단의 범례(라벨) 숨김
-            }
-        },
-        scales: {
-            x: {
-                max: 100,                  // X축 최대값을 100으로 설정 (퍼센트)
-                display: false,            // X축 전체 숨김
-                grid: {
-                    display: false         // X축 격자선 숨김
-                }
-            },
-            y: {
-                display: true,             // Y축 표시 (라벨을 보여주기 위해)
-                border: {
-                    display: false         // Y축 축선 숨김
-                },
-                grid: {
-                    display: false         // Y축 격자선 숨김
-                },
-                ticks: {
-                    display: false,        // 기본 Y축 라벨 숨김
-                    color: '#fff',         // 라벨 텍스트 색상
-                    font: {
-                        size: 28,          // 라벨 폰트 크기
-                        weight: 'bold'     // 라벨 폰트 굵기
-                    }
-                }
-            }
-        },
-        responsive: false,             // 반응형 비활성화
-        maintainAspectRatio: false,    // 비율 고정 해제
-
-    },
-    plugins: [{
-        id: 'dataLabels',                  // 커스텀 플러그인 ID
-        afterDatasetsDraw: function (chart) {
-            const ctx = chart.ctx;         // 캔버스 컨텍스트 가져오기
-
-            chart.data.datasets.forEach((dataset, datasetIndex) => {
-                const meta = chart.getDatasetMeta(datasetIndex);
-
-                meta.data.forEach((bar, index) => {
-                    const data = dataset.data[index];
-
-                    // 퍼센트 텍스트 스타일 설정
-                    ctx.fillStyle = '#fff';        // 텍스트 색상 흰색
-                    ctx.font = 'bold 28px Pretendard';  // 폰트 설정
-                    ctx.textAlign = 'right';       // 텍스트 정렬을 오른쪽으로 변경
-                    ctx.textBaseline = 'middle';   // 수직 정렬
-
-                    // 차트 영역의 맨 오른쪽에서 20px 떨어진 위치에 퍼센트 표시
-                    const x = chart.chartArea.right - 20;  // 차트 영역 오른쪽에서 20px 떨어진 위치
-                    const y = bar.y;                       // 막대의 중앙 높이
-
-                    ctx.fillText(data + '%', x, y); // 퍼센트 텍스트 그리기
-                });
-            });
-        }
-    }]
+// ─────────────────────────────────────────────
+// 핵심 추가 ②: 차트 영역을 벗어났을 때(mouseleave) 커서/레이블 원복
+//  - onHover는 영역을 완전히 벗어나면 호출되지 않을 수 있으므로 보완
+// ─────────────────────────────────────────────
+canvasEl.addEventListener('mouseleave', () => {
+    $label.stop(true, true).fadeOut(160);  // 레이블 숨김
+    canvasEl.style.cursor = 'default';     // 커서 복원
 });
-
-new Chart(document.getElementById("bars-2"), {
-    type: "bar",
-    data: {
-        labels: ["우울증 지수"],
-        datasets: [{
-            data: [52],                // 막대 길이만 결정. 숫자 표시는 안 함
-            backgroundColor: '#fff',
-            borderWidth: 0,
-            borderRadius: 0,
-            barThickness: 73,
-        }]
-    },
-    options: {
-        indexAxis: 'y',
-        plugins: {
-            legend: {
-                display: false             // 차트 상단의 범례(라벨) 숨김
-            }
-        },
-        scales: {
-            x: {
-                max: 100,                  // X축 최대값을 100으로 설정 (퍼센트)
-                display: false,            // X축 전체 숨김
-                grid: {
-                    display: false         // X축 격자선 숨김
-                }
-            },
-            y: {
-                display: true,             // Y축 표시 (라벨을 보여주기 위해)
-                border: {
-                    display: false         // Y축 축선 숨김
-                },
-                grid: {
-                    display: false         // Y축 격자선 숨김
-                },
-                ticks: {
-                    display: false,        // 기본 Y축 라벨 숨김
-                    color: '#fff',         // 라벨 텍스트 색상
-                    font: {
-                        size: 28,          // 라벨 폰트 크기
-                        weight: 'bold'     // 라벨 폰트 굵기
-                    }
-                }
-            }
-        },
-        responsive: false,             // 반응형 비활성화
-        maintainAspectRatio: false,    // 비율 고정 해제
-
-    },
-    plugins: [{
-        id: 'dataLabels',                  // 커스텀 플러그인 ID
-        afterDatasetsDraw: function (chart) {
-            const ctx = chart.ctx;         // 캔버스 컨텍스트 가져오기
-
-            chart.data.datasets.forEach((dataset, datasetIndex) => {
-                const meta = chart.getDatasetMeta(datasetIndex);
-
-                meta.data.forEach((bar, index) => {
-                    const data = dataset.data[index];
-
-                    // 퍼센트 텍스트 스타일 설정
-                    ctx.fillStyle = '#fff';        // 텍스트 색상 흰색
-                    ctx.font = 'bold 28px Pretendard';  // 폰트 설정
-                    ctx.textAlign = 'right';       // 텍스트 정렬을 오른쪽으로 변경
-                    ctx.textBaseline = 'middle';   // 수직 정렬
-
-                    // 차트 영역의 맨 오른쪽에서 20px 떨어진 위치에 퍼센트 표시
-                    const x = chart.chartArea.right - 20;  // 차트 영역 오른쪽에서 20px 떨어진 위치
-                    const y = bar.y;                       // 막대의 중앙 높이
-
-                    ctx.fillText(data + '%', x, y); // 퍼센트 텍스트 그리기
-                });
-            });
-        }
-    }]
-});
-
-new Chart(document.getElementById("bars-3"), {
-    type: "bar",
-    data: {
-        labels: ["범불안장애"],
-        datasets: [{
-            data: [66],                // 막대 길이만 결정. 숫자 표시는 안 함
-            backgroundColor: '#fff',
-            borderWidth: 0,
-            borderRadius: 0,
-            barThickness: 73,
-        }]
-    },
-    options: {
-        indexAxis: 'y',
-        plugins: {
-            legend: {
-                display: false             // 차트 상단의 범례(라벨) 숨김
-            }
-        },
-        scales: {
-            x: {
-                max: 100,                  // X축 최대값을 100으로 설정 (퍼센트)
-                display: false,            // X축 전체 숨김
-                grid: {
-                    display: false         // X축 격자선 숨김
-                }
-            },
-            y: {
-                display: true,             // Y축 표시 (라벨을 보여주기 위해)
-                border: {
-                    display: false         // Y축 축선 숨김
-                },
-                grid: {
-                    display: false         // Y축 격자선 숨김
-                },
-                ticks: {
-                    display: false,        // 기본 Y축 라벨 숨김
-                    color: '#fff',         // 라벨 텍스트 색상
-                    font: {
-                        size: 28,          // 라벨 폰트 크기
-                        weight: 'bold'     // 라벨 폰트 굵기
-                    }
-                }
-            }
-        },
-        responsive: false,             // 반응형 비활성화
-        maintainAspectRatio: false,    // 비율 고정 해제
-
-    },
-    plugins: [{
-        id: 'dataLabels',                  // 커스텀 플러그인 ID
-        afterDatasetsDraw: function (chart) {
-            const ctx = chart.ctx;         // 캔버스 컨텍스트 가져오기
-
-            chart.data.datasets.forEach((dataset, datasetIndex) => {
-                const meta = chart.getDatasetMeta(datasetIndex);
-
-                meta.data.forEach((bar, index) => {
-                    const data = dataset.data[index];
-
-                    // 퍼센트 텍스트 스타일 설정
-                    ctx.fillStyle = '#fff';        // 텍스트 색상 흰색
-                    ctx.font = 'bold 28px Pretendard';  // 폰트 설정
-                    ctx.textAlign = 'right';       // 텍스트 정렬을 오른쪽으로 변경
-                    ctx.textBaseline = 'middle';   // 수직 정렬
-
-                    // 차트 영역의 맨 오른쪽에서 20px 떨어진 위치에 퍼센트 표시
-                    const x = chart.chartArea.right - 20;  // 차트 영역 오른쪽에서 20px 떨어진 위치
-                    const y = bar.y;                       // 막대의 중앙 높이
-
-                    ctx.fillText(data + '%', x, y); // 퍼센트 텍스트 그리기
-                });
-            });
-        }
-    }]
-});
-

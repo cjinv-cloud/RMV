@@ -1,0 +1,154 @@
+/* token.css */
+@charset "utf-8";
+
+/* header */
+header {
+    color: var(--white);
+}
+
+header nav.menu ul li a {
+    color: var(--label-white);
+}
+
+header nav.menu ul li a span {
+    color: var(--white);
+    font-weight: 700;
+}
+
+
+/* main */
+main {
+    width: 100%;
+    height: 840px;
+    background: linear-gradient(rgba(0, 0, 0, 0.1)), url(../assets/images/token/main_bg.png) center / cover no-repeat;
+    overflow: hidden;
+}
+
+main .txt-wrap {
+    text-align: center;
+    padding-top: 270px;
+    color: var(--white);
+}
+
+main .txt-wrap .point-label {
+    justify-content: center;
+}
+
+main .txt-wrap .point-label p {
+    color: var(--white);
+}
+
+main .txt-wrap h2 {}
+
+
+/* article.msg */
+article.msg {
+    height: 360px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(7,5,2), rgb(35,35,35));}
+    
+article.msg h3 {
+    text-align: center;
+    color: var(--white);
+}
+
+/* article.token-rmv */
+
+
+/* article.token-economy */
+article.token-economy {
+    width: 100%;
+    padding: 250px 0;
+    background-color: var(--grey-typo-dark);
+}
+
+article.token-economy .inner {
+    margin: 0 auto;
+}
+
+article.token-economy .title-v2 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 100px;
+}
+
+article.token-economy .title-v2 .title-v1 {}
+
+article.token-economy .title-v2 .title-v1 .point-label {
+    justify-content: center;
+}
+
+article.token-economy .title-v2 .title-v1 .point-label i {}
+
+article.token-economy .title-v2 .title-v1 .point-label i svg {}
+
+article.token-economy .title-v2 .title-v1 .point-label i svg use {}
+
+article.token-economy .title-v2 .title-v1 .point-label p {
+    color: var(--white);
+}
+
+article.token-economy .title-v2 .title-v1 h2 {}
+
+article.token-economy .title-v2 p.v1 {
+    color: var(--white);
+}
+
+article.token-economy .contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+article.token-economy .contents .donut-col {
+}
+
+article.token-economy .contents .donut-col .donut-wrap {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+article.token-economy .contents .donut-col .donut-wrap canvas {}
+
+article.token-economy .contents .donut-col .wrapper .btn_name {
+    display: none;
+}
+
+article.token-economy .contents .donut-col .wrapper .donut-note-1 {}.wrapper 
+article.token-economy .contents .donut-col .wrapper .donut-note-2 {}.wrapper 
+article.token-economy .contents .donut-col .wrapper .donut-note-3 {}.wrapper 
+article.token-economy .contents .donut-col .wrapper .donut-note-4 {}.wrapper 
+article.token-economy .contents .donut-col .wrapper .donut-note-5 {}.wrapper 
+article.token-economy .contents .donut-col .wrapper .donut-note-6 {}
+
+article.token-economy .contents .table-wrap {}
+
+article.token-economy .contents .table-wrap table {
+    color: var(--white);
+}
+
+article.token-economy .contents .table-wrap table caption {
+    display: none;
+}
+
+article.token-economy .contents .table-wrap table tr {}
+
+article.token-economy .contents .table-wrap table tr:first-child {}
+
+article.token-economy .contents .table-wrap table tr th {}
+
+article.token-economy .contents .table-wrap table tr th i {}
+
+article.token-economy .contents .table-wrap table tr th i span.icon-circle {}
+
+article.token-economy .contents .table-wrap table tr td {}
+
+article.token-economy .contents .table-wrap .txt-wrap {}
+
+article.token-economy .contents .table-wrap .txt-wrap h3 {}
+
+article.token-economy .contents .table-wrap .txt-wrap h3 strong {}
+
+article.token-economy .contents .table-wrap .txt-wrap p.v1 {}
