@@ -125,7 +125,7 @@ main .txt-wrap p.des {
     width: 100%;
 }
 
-.about-us .contents-container .inner .charts .donut-col h6.des {
+.about-us .contents-container .inner .charts .donut-col ul li h6 {
     text-align: center;
     position: absolute;
     padding: 12px 20px;
@@ -145,7 +145,7 @@ main .txt-wrap p.des {
     font-weight: var(--font-weight-bold);
     left: 50%;
     top: 50%;
-    transform: translate(-50%,20px);
+    transform: translate(-50%, 20px);
 }
 
 .about-us .contents-container .inner .charts .donut-col p.donut-note {
@@ -155,6 +155,9 @@ main .txt-wrap p.des {
     transform: translateX(-50%);
     bottom: 10px;
     text-align: center;
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    line-height: normal;
 }
 
 .about-us .contents-container .inner .charts .bars-col {
@@ -170,6 +173,7 @@ main .txt-wrap p.des {
     flex-direction: column;
     row-gap: 20px;
 }
+
 .about-us .contents-container .inner .charts .bars-col .wrapper .bar-box {
     width: 100%;
     background-color: var(--white-25);
@@ -177,20 +181,31 @@ main .txt-wrap p.des {
     justify-content: space-between;
     align-items: center;
 }
+
 .about-us .contents-container .inner .charts .bars-col .wrapper .bar-box h4 {
+    width: 100%;
     color: var(--main-color);
-    background-color: var(--white);
     padding: 20px 24px;
+    height: 73.5px;
+    overflow: hidden;
+    position: relative;
 }
-.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box:nth-child(1) h4 {
-    width: 32%;
+
+.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box h4 .white-bar {
+    width: 0;
+    background-color: var(--white);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 0;
 }
-.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box:nth-child(2) h4 {
-    width: 52%;
+
+.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box h4 .txt {
+    position: relative;
+    z-index: 1;
 }
-.about-us .contents-container .inner .charts .bars-col .wrapper .bar-box:nth-child(3) h4 {
-    width: 66%;
-}
+
 
 .about-us .contents-container .inner .charts .bars-col .wrapper .bar-box p.per {
     font-size: 28px;
@@ -279,10 +294,12 @@ main .txt-wrap p.des {
 
 /* platform */
 .platform {
-    max-width: 1271px !important;
+    width: 100%;
+    max-width: 1270px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
 }
 
 .platform .left-contents {
@@ -312,11 +329,28 @@ main .txt-wrap p.des {
 
 .platform .left-contents button.btn_name-icon-v1 {}
 
-.platform .left-contents button.btn_name-icon-v1 a {}
+.platform .left-contents button.btn_name-icon-v1 a {
+    transition: all 0.3s ease;
+}
 
 .platform .left-contents button.btn_name-icon-v1 a i {}
 
-.platform .left-contents button.btn_name-icon-v1 a i img {}
+.platform .left-contents button.btn_name-icon-v1 a i svg {
+    transition: all 0.3s ease;
+}
+
+.platform .left-contents button.btn_name-icon-v1 a:hover {
+    background-color: var(--grey-typo-middle);
+    color: var(--white);
+}
+
+.platform .left-contents button.btn_name-icon-v1 a:hover i {}
+
+.platform .left-contents button.btn_name-icon-v1 a:hover svg {
+    color: var(--white);
+}
+
+
 
 .platform .right-contents {
     width: 416px;
@@ -356,7 +390,7 @@ main .txt-wrap p.des {
 
 .token .txt-wrap .title-v2 .title-v1 .point-label i {}
 
-.token .txt-wrap .title-v2 .title-v1 .point-label i img {}
+.token .txt-wrap .title-v2 .title-v1 .point-label i svg {}
 
 .token .txt-wrap .title-v2 .title-v1 .point-label p {
     color: var(--white);
@@ -372,6 +406,28 @@ main .txt-wrap p.des {
 
 .token .txt-wrap .btn_name-icon-v1 {
     display: inline-block;
+}
+
+.token .txt-wrap .btn_name-icon-v1 a {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.token .txt-wrap .btn_name-icon-v1 a i {}
+
+.token .txt-wrap .btn_name-icon-v1 a i svg {
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.token .txt-wrap .btn_name-icon-v1 a:hover {
+    background-color: var(--white);
+    color: var(--grey-typo-dark);
+}
+
+.token .txt-wrap .btn_name-icon-v1 a:hover i svg {
+    color: var(--grey-typo-dark);
 }
 
 /* eco-system */
@@ -402,9 +458,21 @@ main .txt-wrap p.des {
 
 .eco-system .contents ul li.box-v2 {}
 
-.eco-system .contents ul li.box-v2 .img-wrap {}
+.eco-system .contents ul li.box-v2 .img-wrap {
+    background-color: var(--black);
+}
 
-.eco-system .contents ul li.box-v2 .img-wrap img {}
+.eco-system .contents ul li.box-v2 .img-wrap img {
+    opacity: 0.8;
+    width: 100%;
+    transition: all 0.5s ease;
+    transform: scale(1);
+}
+
+.eco-system .contents ul li.box-v2 .img-wrap:hover img {
+    opacity: 1;
+    transform: scale(1.2);
+}
 
 .eco-system .contents ul li.box-v2 .txt-wrap {}
 
@@ -413,4 +481,3 @@ main .txt-wrap p.des {
 .eco-system .contents ul li.box-v2 .txt-wrap h6 {}
 
 .eco-system .contents ul li.box-v2 .txt-wrap p {}
-

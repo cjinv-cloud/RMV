@@ -95,19 +95,13 @@ article.stat .title-v2 p.v1 {}
 
 article.stat .contents {
     width: 580px;
-}
-
-article.stat .contents ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 264px 264px 264px;
-    column-gap: 32px;
-    row-gap: 36px;
+    overflow: hidden;
     position: relative;
+    height: 864px;
 }
 
 /* 그리드 위아래 투명 흰색으로 가려줄 요소 */
-article.stat .contents ul::before {
+article.stat .contents::before {
     content: "";
     position: absolute;
     top: -110px;
@@ -120,7 +114,7 @@ article.stat .contents ul::before {
     z-index: 1;
 }
 
-article.stat .contents ul::after {
+article.stat .contents::after {
     content: "";
     position: absolute;
     bottom: -110px;
@@ -133,6 +127,17 @@ article.stat .contents ul::after {
     z-index: 0;
 }
 
+article.stat .contents ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 264px 264px 264px;
+    column-gap: 32px;
+    row-gap: 36px;
+    overflow: hidden;
+}
+article.stat .contents ul:first-child {
+    margin-bottom: 36px;
+}
 
 article.stat .contents ul li.box-v4 {}
 
@@ -302,13 +307,14 @@ article.walk-mode {
     background-color: var(--main-color);
     color: var(--white);
 }
-article.walk-mode .inner {
+
+article.walk-mode .walk-mode_inner {
+    width: 100%;
+    max-width: 1270px;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    padding-left: 80px;
-    padding-right: 40px;
 }
 
 article.walk-mode .left-contents {
@@ -355,6 +361,32 @@ article.walk-mode .left-contents ul.button-wrap li {}
 article.walk-mode .left-contents ul.button-wrap li div.btn_name-icon-v1 {}
 
 article.walk-mode .left-contents ul.button-wrap li div.btn_name-icon-v1 a {
+    cursor: default;
+}
+
+/* 버튼에 대한 hover.css 조정 */
+article.walk-mode .left-contents ul.button-wrap li div.hvr-pulse-grow:hover,
+.hvr-pulse-grow:focus,
+.hvr-pulse-grow:active {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+@-webkit-keyframes hvr-pulse-grow {
+    to {
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07);
+    }
+}
+
+@keyframes hvr-pulse-grow {
+    to {
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07);
+    }
+}
+
+article.walk-mode .left-contents ul.button-wrap li div.btn_name-icon-v1 a {
     background-color: var(--white);
     color: var(--main-color);
 }
@@ -367,7 +399,9 @@ article.walk-mode .left-contents ul.button-wrap li div.btn_name-icon-v1 a i svg 
 
 article.walk-mode .left-contents ul.button-wrap li div.btn_name-icon-v1 a i svg use {}
 
-article.walk-mode .right-contents {}
+article.walk-mode .right-contents {
+    width: 416px;
+}
 
 article.walk-mode .right-contents video {}
 
@@ -398,6 +432,19 @@ article.community .keyword-contents {
     position: relative;
 }
 
+/* keyframe 정의 */
+@keyframes drawLine {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+
+    100% {
+        height: 504px;
+        opacity: 1;
+    }
+}
+
 article.community .keyword-contents::before {
     content: "";
     position: absolute;
@@ -405,10 +452,17 @@ article.community .keyword-contents::before {
     top: 0;
     transform: translateX(-50%);
     width: 1px;
-    height: 504px;
+    height: 0;
+    opacity: 0;
     background-color: #8c8c8c;
     z-index: 0;
 }
+
+/* 화면에 보일 때 애니메이션 시작 */
+article.community .keyword-contents.animate::before {
+    animation: drawLine 5s ease-out forwards;
+}
+
 
 article.community .keyword-contents ul.wrapper {
     display: flex;
@@ -428,6 +482,7 @@ article.community .keyword-contents ul.wrapper li div.btn_name-icon-v2 {}
 
 article.community .keyword-contents ul.wrapper li div.btn_name-icon-v2 a {
     display: inline-flex;
+    cursor: default;
 }
 
 article.community .keyword-contents ul.wrapper li div.btn_name-icon-v2 a i {}
@@ -467,6 +522,7 @@ article.live {
 }
 
 article.live .inner {
+    width: 100%;
     display: flex;
     flex-direction: column;
     row-gap: 50px;
@@ -490,9 +546,19 @@ article.live .title-v2 p.v1 {
     color: var(--white);
 }
 
-article.live video {}
+article.live .video-wrap {
+    width: 100%;
+}
 
-article.live video source {}
+article.live .video-wrap video {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+article.live .video-wrap video source {}
 
 article.live ul {
     width: 100%;
@@ -501,7 +567,14 @@ article.live ul {
     column-gap: 20px;
 }
 
-article.live ul li.box-v3 {}
+article.live ul li.box-v3 {
+    background-color: rgba(100, 100, 100, 0.3);
+    transition: all 0.3s ease;
+}
+
+article.live ul li.box-v3:hover {
+    background-color: #646464;
+}
 
 article.live ul li.box-v3 h3 {}
 

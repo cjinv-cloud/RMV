@@ -102,6 +102,42 @@
 
 .box-v4 .txt-wrap p {}
 
+/* 1-5. box-v5 */
+.box-v5 {
+    background-color: var(--white);
+    padding: 60px 48px;
+    border-radius: 20px;
+    width: 648px;
+    height: 323px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
+}
+
+.box-v5 i {
+    width: 48px;
+    height: 48px;
+}
+
+.box-v5 i svg {
+    color: var(--main-color);
+    width: 100%;
+    height: 100%;
+}
+
+.box-v5 i svg use {}
+
+.box-v5 .txt-wrap {}
+
+.box-v5 .txt-wrap h3 {
+    margin-bottom: 28px;
+}
+
+.box-v5 .txt-wrap p.v1 {
+    color: var(--grey-typo-light);
+}
+
 
 /* 2. title */
 /* 2-1. title-v1 */
@@ -197,6 +233,7 @@
 
 .btn_name-icon-v1 a i svg use {}
 
+
 /*  dark  */
 .btn_name-icon-v1.dark a {
     background-color: var(--grey-light);
@@ -257,11 +294,13 @@
     display: inline-block;
     padding: 12px 20px;
     background-color: var(--white);
+    border-radius: 60px;
 }
 
 .btn_name p.v1 {
     font-weight: var(--font-weight-bold);
 }
+
 
 /* 4. point-label */
 .point-label {
@@ -324,7 +363,13 @@ header {
     justify-content: center;
     padding: 30px 0;
     z-index: 9999;
+    transition: transform 0.7s ease; /* components.js 2. header 스크롤에 따른 숨김/표시 */
 }
+
+/* 숨김 상태 */
+header.is-hidden{
+    transform: translateY(-100%);
+  }
 
 header .inner {
     display: flex;
@@ -342,6 +387,7 @@ header h1 a {
 
 header h1 img {
     width: 100%;
+    transition: all 0.7s ease;
 }
 
 header nav.menu {
@@ -367,26 +413,33 @@ header nav.menu ul li a {
     letter-spacing: -2%;
     transition: all 0.2s ease-in-out;
     color: var(--label-grey);
+    transition: all 0.7s ease;
 }
 
 header nav.menu ul li a span {
     color: var(--grey-typo-dark);
     font-weight: 700;
+    transition: all 0.7s ease;
 }
 
 header .lang {
+    width: 90px;
     position: relative;
     /* nav.lang-list의 기준 */
 }
 
 header .lang .current-lang {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     column-gap: 6px;
     cursor: pointer;
 }
 
-header .lang .current-lang h6 {}
+header .lang .current-lang h6 {
+    transition: all 0.7s ease;
+}
 
 header .lang .current-lang i {
     width: 24px;
@@ -397,7 +450,7 @@ header .lang .current-lang i {
 header .lang .current-lang i svg {
     width: 100%;
     height: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.7s ease;
 }
 
 header .lang .current-lang i:hover svg {
@@ -408,9 +461,14 @@ header .lang .current-lang i:hover svg {
 header .lang nav.lang-list {
     position: absolute;
     /* 기준 : header .lang */
-    top: 28px;
-    width: 100%;
+    top: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
     display: none;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
 }
 
 header .lang nav.lang-list ul {
@@ -434,7 +492,9 @@ header .lang nav.lang-list ul li a:hover {
 
 /* 5-2. header.dark */
 header.dark {
+    background-color: var(--white);
     color: var(--grey-typo-dark);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 header.dark nav.menu ul li a {
@@ -451,7 +511,7 @@ header.dark nav.menu ul li a span {
 /* experience */
 .experience {
     width: 100%;
-    height: 570px;
+    height: 700px;
     background:
         linear-gradient(rgba(0, 0, 0, 0.3)),
         url(../assets/images/experience_bg.jpg) center / cover no-repeat;
